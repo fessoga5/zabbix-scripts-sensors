@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-01-06T18:50:35Z</date>
+    <date>2016-01-06T19:08:53Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -70,7 +70,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>zsensors[{#NAME}]</key>
+                            <key>zsensors[&quot;{#NAME}&quot;]</key>
                             <delay>60</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -110,7 +110,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{zabbix-scripts-sensors:zsensors[{#NAME}].last()}&gt;60</expression>
+                            <expression>{zabbix-scripts-sensors:zsensors[&quot;{#NAME}&quot;].last()}&gt;60</expression>
                             <name>Critical {#NAME} temperature</name>
                             <url/>
                             <status>0</status>
