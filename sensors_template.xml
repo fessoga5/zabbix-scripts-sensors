@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ru" id="document" dir="ltr">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# fb: http://ogp.me/ns/fb# place: http://ogp.me/ns/place# book: http://ogp.me/ns/book#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>
+    Шаблоны Zabbix 2.2    [Enchanted Technology]
+  </title>
+
+  <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="zabbix"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/lib/exe/opensearch.php" title="Enchanted Technology"/>
+<link rel="start" href="/"/>
+<link rel="contents" href="/handmade/zabbix/zabbix_templates?do=index" title="Все страницы"/>
+<link rel="alternate" type="application/rss+xml" title="Недавние изменения" href="/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Текущее пространство имён" href="/feed.php?mode=list&amp;ns=handmade:zabbix"/>
+<link rel="alternate" type="text/html" title="Простой HTML" href="/_export/xhtml/handmade/zabbix/zabbix_templates"/>
+<link rel="canonical" href="http://wiki.enchtex.info/handmade/zabbix/zabbix_templates"/>
+<link rel="stylesheet" type="text/css" href="/lib/exe/css.php?t=arctic&amp;tseed=160b60126293c95c28a24d5504286b78"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='handmade:zabbix';var JSINFO = {"id":"handmade:zabbix:zabbix_templates","namespace":"handmade:zabbix","plugin_folded":{"hide":"\u0441\u043a\u0440\u044b\u0442\u044c","reveal":"\u043e\u0442\u043a\u0440\u044b\u0442\u044c"},"isadmin":0,"isauth":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="/lib/exe/js.php?t=arctic&amp;tseed=160b60126293c95c28a24d5504286b78"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/NS = "handmade:zabbix";var toolbar = [{"type":"format","title":"\u041f\u043e\u043b\u0443\u0436\u0438\u0440\u043d\u044b\u0439","icon":"bold.png","key":"b","open":"**","close":"**","block":false},{"type":"format","title":"\u041a\u0443\u0440\u0441\u0438\u0432","icon":"italic.png","key":"i","open":"\/\/","close":"\/\/","block":false},{"type":"format","title":"\u041f\u043e\u0434\u0447\u0451\u0440\u043a\u043d\u0443\u0442\u044b\u0439","icon":"underline.png","key":"u","open":"__","close":"__","block":false},{"type":"format","title":"\u0422\u0435\u043a\u0441\u0442 \u043a\u043e\u0434\u0430","icon":"mono.png","key":"m","open":"''","close":"''","block":false},{"type":"format","title":"\u0417\u0430\u0447\u0451\u0440\u043a\u043d\u0443\u0442\u044b\u0439","icon":"strike.png","key":"d","open":"<del>","close":"<\/del>","block":false},{"type":"autohead","title":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a \u0442\u0435\u043a\u0443\u0449\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f","icon":"hequal.png","key":"8","text":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a","mod":0,"block":true},{"type":"autohead","title":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a \u0431\u043e\u043b\u0435\u0435 \u043d\u0438\u0437\u043a\u043e\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f (\u043f\u043e\u0434\u0437\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a)","icon":"hminus.png","key":"9","text":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a","mod":1,"block":true},{"type":"autohead","title":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a \u0431\u043e\u043b\u0435\u0435 \u0432\u044b\u0441\u043e\u043a\u043e\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f","icon":"hplus.png","key":"0","text":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a","mod":-1,"block":true},{"type":"picker","title":"\u0412\u044b\u0431\u043e\u0440 \u0437\u0430\u0433\u043e\u043b\u043e\u0432\u043a\u0430","icon":"h.png","class":"pk_hl","list":[{"type":"format","title":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a 1-\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f","icon":"h1.png","key":"1","open":"====== ","close":" ======\\n"},{"type":"format","title":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a 2-\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f","icon":"h2.png","key":"2","open":"===== ","close":" =====\\n"},{"type":"format","title":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a 3-\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f","icon":"h3.png","key":"3","open":"==== ","close":" ====\\n"},{"type":"format","title":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a 4-\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f","icon":"h4.png","key":"4","open":"=== ","close":" ===\\n"},{"type":"format","title":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a 5-\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f","icon":"h5.png","key":"5","open":"== ","close":" ==\\n"}],"block":true},{"type":"format","title":"\u0412\u043d\u0435\u0448\u043d\u044f\u044f \u0441\u0441\u044b\u043b\u043a\u0430","icon":"linkextern.png","open":"[[","close":"]]","sample":"http:\/\/example.com|\u0412\u043d\u0435\u0448\u043d\u044f\u044f \u0441\u0441\u044b\u043b\u043a\u0430","block":false},{"type":"formatln","title":"\u042d\u043b\u0435\u043c\u0435\u043d\u0442 \u043d\u0443\u043c\u0435\u0440\u043e\u0432\u0430\u043d\u043d\u043e\u0433\u043e \u0441\u043f\u0438\u0441\u043a\u0430","icon":"ol.png","open":"  - ","close":"","key":"-","block":true},{"type":"formatln","title":"\u042d\u043b\u0435\u043c\u0435\u043d\u0442 \u043d\u0435\u043d\u0443\u043c\u0435\u0440\u043e\u0432\u0430\u043d\u043d\u043e\u0433\u043e \u0441\u043f\u0438\u0441\u043a\u0430","icon":"ul.png","open":"  * ","close":"","key":".","block":true},{"type":"insert","title":"\u0420\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u0435\u043b\u044c","icon":"hr.png","insert":"\\n----\\n","block":true},{"type":"picker","title":"\u0421\u043c\u0430\u0439\u043b\u0438\u043a\u0438","icon":"smiley.png","list":{"8-)":"icon_cool.gif","8-O":"icon_eek.gif","8-o":"icon_eek.gif",":-(":"icon_sad.gif",":-)":"icon_smile.gif","=)":"icon_smile2.gif",":-\/":"icon_doubt.gif",":-\\":"icon_doubt2.gif",":-?":"icon_confused.gif",":-D":"icon_biggrin.gif",":-P":"icon_razz.gif",":-o":"icon_surprised.gif",":-O":"icon_surprised.gif",":-x":"icon_silenced.gif",":-X":"icon_silenced.gif",":-|":"icon_neutral.gif",";-)":"icon_wink.gif","m(":"facepalm.gif","^_^":"icon_fun.gif",":?:":"icon_question.gif",":!:":"icon_exclaim.gif","LOL":"icon_lol.gif","FIXME":"fixme.gif","DELETEME":"delete.gif"},"icobase":"smileys","block":false},{"type":"picker","title":"\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u0438\u043c\u0432\u043e\u043b\u044b","icon":"chars.png","list":["\u00c0","\u00e0","\u00c1","\u00e1","\u00c2","\u00e2","\u00c3","\u00e3","\u00c4","\u00e4","\u01cd","\u01ce","\u0102","\u0103","\u00c5","\u00e5","\u0100","\u0101","\u0104","\u0105","\u00c6","\u00e6","\u0106","\u0107","\u00c7","\u00e7","\u010c","\u010d","\u0108","\u0109","\u010a","\u010b","\u00d0","\u0111","\u00f0","\u010e","\u010f","\u00c8","\u00e8","\u00c9","\u00e9","\u00ca","\u00ea","\u00cb","\u00eb","\u011a","\u011b","\u0112","\u0113","\u0116","\u0117","\u0118","\u0119","\u0122","\u0123","\u011c","\u011d","\u011e","\u011f","\u0120","\u0121","\u0124","\u0125","\u00cc","\u00ec","\u00cd","\u00ed","\u00ce","\u00ee","\u00cf","\u00ef","\u01cf","\u01d0","\u012a","\u012b","\u0130","\u0131","\u012e","\u012f","\u0134","\u0135","\u0136","\u0137","\u0139","\u013a","\u013b","\u013c","\u013d","\u013e","\u0141","\u0142","\u013f","\u0140","\u0143","\u0144","\u00d1","\u00f1","\u0145","\u0146","\u0147","\u0148","\u00d2","\u00f2","\u00d3","\u00f3","\u00d4","\u00f4","\u00d5","\u00f5","\u00d6","\u00f6","\u01d1","\u01d2","\u014c","\u014d","\u0150","\u0151","\u0152","\u0153","\u00d8","\u00f8","\u0154","\u0155","\u0156","\u0157","\u0158","\u0159","\u015a","\u015b","\u015e","\u015f","\u0160","\u0161","\u015c","\u015d","\u0162","\u0163","\u0164","\u0165","\u00d9","\u00f9","\u00da","\u00fa","\u00db","\u00fb","\u00dc","\u00fc","\u01d3","\u01d4","\u016c","\u016d","\u016a","\u016b","\u016e","\u016f","\u01d6","\u01d8","\u01da","\u01dc","\u0172","\u0173","\u0170","\u0171","\u0174","\u0175","\u00dd","\u00fd","\u0178","\u00ff","\u0176","\u0177","\u0179","\u017a","\u017d","\u017e","\u017b","\u017c","\u00de","\u00fe","\u00df","\u0126","\u0127","\u00bf","\u00a1","\u00a2","\u00a3","\u00a4","\u00a5","\u20ac","\u00a6","\u00a7","\u00aa","\u00ac","\u00af","\u00b0","\u00b1","\u00f7","\u2030","\u00bc","\u00bd","\u00be","\u00b9","\u00b2","\u00b3","\u00b5","\u00b6","\u2020","\u2021","\u00b7","\u2022","\u00ba","\u2200","\u2202","\u2203","\u018f","\u0259","\u2205","\u2207","\u2208","\u2209","\u220b","\u220f","\u2211","\u203e","\u2212","\u2217","\u00d7","\u2044","\u221a","\u221d","\u221e","\u2220","\u2227","\u2228","\u2229","\u222a","\u222b","\u2234","\u223c","\u2245","\u2248","\u2260","\u2261","\u2264","\u2265","\u2282","\u2283","\u2284","\u2286","\u2287","\u2295","\u2297","\u22a5","\u22c5","\u25ca","\u2118","\u2111","\u211c","\u2135","\u2660","\u2663","\u2665","\u2666","\u03b1","\u03b2","\u0393","\u03b3","\u0394","\u03b4","\u03b5","\u03b6","\u03b7","\u0398","\u03b8","\u03b9","\u03ba","\u039b","\u03bb","\u03bc","\u039e","\u03be","\u03a0","\u03c0","\u03c1","\u03a3","\u03c3","\u03a4","\u03c4","\u03c5","\u03a6","\u03c6","\u03c7","\u03a8","\u03c8","\u03a9","\u03c9","\u2605","\u2606","\u260e","\u261a","\u261b","\u261c","\u261d","\u261e","\u261f","\u2639","\u263a","\u2714","\u2718","\u201e","\u201c","\u201d","\u201a","\u2018","\u2019","\u00ab","\u00bb","\u2039","\u203a","\u2014","\u2013","\u2026","\u2190","\u2191","\u2192","\u2193","\u2194","\u21d0","\u21d1","\u21d2","\u21d3","\u21d4","\u00a9","\u2122","\u00ae","\u2032","\u2033","[","]","{","}","~","(",")","%","\u00a7","$","#","|","@"],"block":false},{"type":"format","title":"Mark text as key press","icon":"..\/..\/plugins\/keyboard\/keyboard.png","open":"<key>","close":"<\/key>"},{"type":"format","title":"\u041e\u0442\u043c\u0435\u0442\u0438\u0442\u044c \u0432\u044b\u0434\u0435\u043b\u0435\u043d\u043d\u044b\u0439 \u0442\u0435\u043a\u0441\u0442 \u043a\u0430\u043a \u0446\u0438\u0442\u0430\u0442\u0443","icon":"..\/..\/plugins\/blockquote\/images\/blockquote-icon.png","open":"<blockquote>","close":"<\/blockquote>"}];
+
+/*!]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		  
+/*!]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/
+var pageTracker = _gat._getTracker("UA-7640159-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+		  
+/*!]]>*/</script>
+
+  <link rel="shortcut icon" href="/lib/tpl/arctic/images/favicon.ico" />
+
+  
+</head>
+<body>
+
+<div id="skiplinks" class="skiplinks">
+  <a href="#dokuwiki__content" class="skiplink">Перейти к содержанию</a>
+</div>
+
+<div id="wrapper" class='show'>
+  <div class="dokuwiki">
+
+    
+    <header class="stylehead">
+      <div class="header">
+        <div class="pagename">
+	            [[Шаблоны Zabbix 2.2]]
+	          </div>
+        <div class="logo">
+          <a href="/start"  id="dokuwiki__top" accesskey="h" title="[ALT+H]">Enchanted Technology</a>        </div>
+      </div>
+
+      
+          </header>
+
+                
+    
+    
+    
+              <div class="left_sidebar">
+          <form action="/start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" placeholder="Поиск" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><button type="submit" title="Поиск">Поиск</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>          <nav class="toc_sidebar sidebar_box">
+<!-- TOC START -->
+<div id="sb__left__dw__toc">
+<h3 class="toggle">Содержание</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#шаблоны_zabbix_22">Шаблоны Zabbix 2.2</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#mysql_stats">MySQL Stats</a></div></li>
+<li class="level3"><div class="li"><a href="#mysql_slave">MySQL Slave</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#шаблоны_zabbix_20">Шаблоны Zabbix 2.0</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#ubuntu_server">Ubuntu Server</a></div></li>
+<li class="level3"><div class="li"><a href="#gentoo_server">Gentoo Server</a></div></li>
+<li class="level3"><div class="li"><a href="#apache2">Apache2</a></div></li>
+<li class="level3"><div class="li"><a href="#nginx">Nginx</a></div></li>
+<li class="level3"><div class="li"><a href="#memcache">Memcache</a></div></li>
+<li class="level3"><div class="li"><a href="#iostat">IOSTAT</a></div></li>
+<li class="level3"><div class="li"><a href="#lm_sensors">LM_SENSORS</a></div></li>
+<li class="level3"><div class="li"><a href="#lsi_megaraid">LSI MegaRAID</a></div></li>
+<li class="level3"><div class="li"><a href="#smart">S.M.A.R.T.</a></div></li>
+<li class="level3"><div class="li"><a href="#postfix">Postfix</a></div></li>
+<li class="level3"><div class="li"><a href="#varnish">Varnish</a></div></li>
+<li class="level3"><div class="li"><a href="#hp_smart_array">HP Smart Array</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#шаблоны_zabbix_18">Шаблоны Zabbix 1.8</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#gentoo_server1">Gentoo Server</a></div></li>
+<li class="level3"><div class="li"><a href="#nginx1">Nginx</a></div></li>
+<li class="level3"><div class="li"><a href="#apache">Apache</a></div></li>
+<li class="level3"><div class="li"><a href="#mysql">MySQL</a></div></li>
+<li class="level3"><div class="li"><a href="#memcache1">Memcache</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#discussion__section">Обсуждение</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+</nav>
+<aside class="main_sidebar sidebar_box">
+
+<h1 class="sectionedit1" id="меню">Меню</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> <a href="/start" class="wikilink1" title="start">Главная страница</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/howto/start" class="wikilink1" title="howto:start">Станицы HOWTO</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/tools/start" class="wikilink1" title="tools:start">Tools &amp; Utils</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/doc/start" class="wikilink1" title="doc:start">Теория и документация</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/practice/start" class="wikilink1" title="practice:start">Практикум</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/handmade/start" class="wikilink1" title="handmade:start">Своими руками</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/experience/start" class="wikilink1" title="experience:start">Опыт</a></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a href="/wiki/syntax" class="wikilink1" title="wiki:syntax">Синтаксис wiki</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Меню" [1-342] -->
+<h1 class="sectionedit2" id="теги">Теги</h1>
+<div class="level1">
+<div class="cloud">
+	<a href="/tag/apache?do=showtag&amp;tag=apache" class="cloud2_tag2" title="apache">apache</a>
+	<a href="/tag/asterisk?do=showtag&amp;tag=asterisk" class="cloud4_tag2" title="asterisk">asterisk</a>
+	<a href="/tag/backup?do=showtag&amp;tag=backup" class="cloud3_tag2" title="backup">backup</a>
+	<a href="/tag/bash?do=showtag&amp;tag=bash" class="cloud3_tag2" title="bash">bash</a>
+	<a href="/tag/crypt?do=showtag&amp;tag=crypt" class="cloud4_tag2" title="crypt">crypt</a>
+	<a href="/tag/emerge?do=showtag&amp;tag=emerge" class="cloud1_tag2" title="emerge">emerge</a>
+	<a href="/tag/festival?do=showtag&amp;tag=festival" class="cloud2_tag2" title="festival">festival</a>
+	<a href="/tag/ftp?do=showtag&amp;tag=ftp" class="cloud2_tag2" title="ftp">ftp</a>
+	<a href="/tag/gentoo?do=showtag&amp;tag=gentoo" class="cloud5_tag2" title="gentoo">gentoo</a>
+	<a href="/tag/git?do=showtag&amp;tag=git" class="cloud2_tag2" title="git">git</a>
+	<a href="/tag/grub?do=showtag&amp;tag=grub" class="cloud1_tag2" title="grub">grub</a>
+	<a href="/tag/gui?do=showtag&amp;tag=gui" class="cloud2_tag2" title="gui">gui</a>
+	<a href="/tag/hack?do=showtag&amp;tag=hack" class="cloud1_tag2" title="hack">hack</a>
+	<a href="/tag/htb?do=showtag&amp;tag=htb" class="cloud1_tag2" title="htb">htb</a>
+	<a href="/tag/https?do=showtag&amp;tag=https" class="cloud1_tag2" title="https">https</a>
+	<a href="/tag/iptables?do=showtag&amp;tag=iptables" class="cloud3_tag2" title="iptables">iptables</a>
+	<a href="/tag/jabber?do=showtag&amp;tag=jabber" class="cloud2_tag2" title="jabber">jabber</a>
+	<a href="/tag/kde?do=showtag&amp;tag=kde" class="cloud1_tag2" title="kde">kde</a>
+	<a href="/tag/kvm?do=showtag&amp;tag=kvm" class="cloud1_tag2" title="kvm">kvm</a>
+	<a href="/tag/lenovo?do=showtag&amp;tag=lenovo" class="cloud2_tag2" title="lenovo">lenovo</a>
+	<a href="/tag/megaraid?do=showtag&amp;tag=megaraid" class="cloud1_tag2" title="megaraid">megaraid</a>
+	<a href="/tag/memcache?do=showtag&amp;tag=memcache" class="cloud1_tag2" title="memcache">memcache</a>
+	<a href="/tag/mysql?do=showtag&amp;tag=mysql" class="cloud4_tag2" title="mysql">mysql</a>
+	<a href="/tag/nginx?do=showtag&amp;tag=nginx" class="cloud3_tag2" title="nginx">nginx</a>
+	<a href="/tag/openldap?do=showtag&amp;tag=openldap" class="cloud1_tag2" title="openldap">openldap</a>
+	<a href="/tag/openssl?do=showtag&amp;tag=openssl" class="cloud1_tag2" title="openssl">openssl</a>
+	<a href="/tag/openvz?do=showtag&amp;tag=openvz" class="cloud2_tag2" title="openvz">openvz</a>
+	<a href="/tag/php?do=showtag&amp;tag=php" class="cloud2_tag2" title="php">php</a>
+	<a href="/tag/postfix?do=showtag&amp;tag=postfix" class="cloud1_tag2" title="postfix">postfix</a>
+	<a href="/tag/postgresql?do=showtag&amp;tag=postgresql" class="cloud1_tag2" title="postgresql">postgresql</a>
+	<a href="/tag/pptpd?do=showtag&amp;tag=pptpd" class="cloud1_tag2" title="pptpd">pptpd</a>
+	<a href="/tag/proftpd?do=showtag&amp;tag=proftpd" class="cloud2_tag2" title="proftpd">proftpd</a>
+	<a href="/tag/proxy?do=showtag&amp;tag=proxy" class="cloud1_tag2" title="proxy">proxy</a>
+	<a href="/tag/samba?do=showtag&amp;tag=samba" class="cloud1_tag2" title="samba">samba</a>
+	<a href="/tag/scp?do=showtag&amp;tag=scp" class="cloud1_tag2" title="scp">scp</a>
+	<a href="/tag/script?do=showtag&amp;tag=script" class="cloud1_tag2" title="script">script</a>
+	<a href="/tag/scripts?do=showtag&amp;tag=scripts" class="cloud1_tag2" title="scripts">scripts</a>
+	<a href="/tag/sed?do=showtag&amp;tag=sed" class="cloud2_tag2" title="sed">sed</a>
+	<a href="/tag/sftp?do=showtag&amp;tag=sftp" class="cloud2_tag2" title="sftp">sftp</a>
+	<a href="/tag/smart?do=showtag&amp;tag=smart" class="cloud2_tag2" title="smart">smart</a>
+	<a href="/tag/socks?do=showtag&amp;tag=socks" class="cloud1_tag2" title="socks">socks</a>
+	<a href="/tag/ssd?do=showtag&amp;tag=ssd" class="cloud1_tag2" title="ssd">ssd</a>
+	<a href="/tag/ssh?do=showtag&amp;tag=ssh" class="cloud4_tag2" title="ssh">ssh</a>
+	<a href="/tag/ssl?do=showtag&amp;tag=ssl" class="cloud1_tag2" title="ssl">ssl</a>
+	<a href="/tag/tar?do=showtag&amp;tag=tar" class="cloud1_tag2" title="tar">tar</a>
+	<a href="/tag/ubuntu?do=showtag&amp;tag=ubuntu" class="cloud5_tag2" title="ubuntu">ubuntu</a>
+	<a href="/tag/useradd?do=showtag&amp;tag=useradd" class="cloud1_tag2" title="useradd">useradd</a>
+	<a href="/tag/yoga?do=showtag&amp;tag=yoga" class="cloud1_tag2" title="yoga">yoga</a>
+	<a href="/tag/zabbix?do=showtag&amp;tag=zabbix" class="cloud5_tag2" title="zabbix">zabbix</a>
+	<a href="/tag/%D0%BF%D1%80%D0%B0%D0%B2%D0%B0?do=showtag&amp;tag=%D0%BF%D1%80%D0%B0%D0%B2%D0%B0" class="cloud3_tag2" title="права">права</a>
+</div>
+
+</div>
+<!-- EDIT2 SECTION "Теги" [343-] -->
+</aside>
+<aside class="namespace_sidebar sidebar_box">
+
+<h1 class="sectionedit1" id="навигация">Навигация</h1>
+<div class="level1">
+
+<div><div id="nojs_indexmenu_103863332556755463d4447" data-jsajax="%26sort%3Dt" class="indexmenu_nojs">
+
+<ul class="idx">
+<li class="closed"><div class="li"><a href="/handmade/bash?idx=handmade:bash" class="indexmenu_idx">bash</a></div></li>
+<li class="closed"><div class="li"><a href="/handmade/c?idx=handmade:c" class="indexmenu_idx">c</a></div></li>
+<li class="closed"><div class="li"><a href="/handmade/zabbix?idx=handmade:zabbix" class="indexmenu_idx">zabbix</a></div></li>
+<li class="level1" ><div class="li"><a href="/handmade/vzadmin" class="wikilink1" title="handmade:vzadmin">VZadmin - графическая консольная утилита для управления OpenVZ</a></div></li>
+</ul>
+</div></div>
+<script type='text/javascript' charset='utf-8'>
+<!--//--><![CDATA[//><!--
+var indexmenu_103863332556755463d4447 = new dTree('indexmenu_103863332556755463d4447','default');
+indexmenu_103863332556755463d4447.config.urlbase='/';
+indexmenu_103863332556755463d4447.config.sepchar='/';
+indexmenu_103863332556755463d4447.config.jsajax='%26sort%3Dt';
+indexmenu_103863332556755463d4447.add('handmade',0,-1,"\u0421\u0432\u043e\u0438\u043c\u0438 \u0440\u0443\u043a\u0430\u043c\u0438",'handmade/start');
+indexmenu_103863332556755463d4447.add('handmade/bash',1,0,"bash",0,1,0);
+indexmenu_103863332556755463d4447.add('handmade/bash/script_apache_vhosts',2,1,"Apache vHosts Manager (Gentoo)",0,0,0);
+indexmenu_103863332556755463d4447.add('handmade/bash/backup_gentoo',3,1,"backup Gentoo",0,0,0);
+indexmenu_103863332556755463d4447.add('handmade/bash/backup_ubuntu',4,1,"backup Ubuntu",0,0,0);
+indexmenu_103863332556755463d4447.add('handmade/bash/script_nginx_vhosts',5,1,"Nginx vHosts Manager",0,0,0);
+indexmenu_103863332556755463d4447.add('handmade/c',6,0,"c",0,1,0);
+indexmenu_103863332556755463d4447.add('handmade/c/simple-smtp',7,6,"\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0430 \u0440\u0430\u0431\u043e\u0442\u044b \u0441 SMTP",0,0,0);
+indexmenu_103863332556755463d4447.add('handmade/zabbix',8,0,"zabbix",0,1,0);
+indexmenu_103863332556755463d4447.add('handmade/zabbix/zabbix_tcpping',9,8,"\u0421\u043a\u0440\u0438\u043f\u0442 TCPPing \u0434\u043b\u044f Zabbix",0,0,0);
+indexmenu_103863332556755463d4447.add('handmade/zabbix/zabbix_templates',10,8,"\u0428\u0430\u0431\u043b\u043e\u043d\u044b Zabbix 2.2",0,0,0);
+indexmenu_103863332556755463d4447.add('handmade/vzadmin',11,0,"VZadmin - \u0433\u0440\u0430\u0444\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043a\u043e\u043d\u0441\u043e\u043b\u044c\u043d\u0430\u044f \u0443\u0442\u0438\u043b\u0438\u0442\u0430 \u0434\u043b\u044f \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f OpenVZ",0,0,0);
+document.write(indexmenu_103863332556755463d4447);
+jQuery(function(){indexmenu_103863332556755463d4447.init(0,0,"",0,0);});
+//--><!]]>
+</script>
+
+</div>
+
+</aside>
+        </div>
+        <main class="right_page" id="dokuwiki__content" tabindex="-1">
+          <div class="tags"><span>
+	<a href="/tag/zabbix?do=showtag&amp;tag=zabbix" class="wikilink1" title="tag:zabbix" rel="tag">zabbix</a>
+</span></div>
+
+<p>
+<img src="/_media/howto/zabbix-logo.png" class="mediaright" title="Zabbix" alt="Zabbix" />
+</p>
+
+<h1 class="sectionedit1" id="шаблоны_zabbix_22">Шаблоны Zabbix 2.2</h1>
+<div class="level1">
+
+</div>
+
+<h3 class="sectionedit2" id="mysql_stats">MySQL Stats</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2.2-mytemplate-mysql-stats-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2.2-mytemplate-mysql-stats-agent.xml (84 KB)">Шаблон для мониторинга MySQL Stats (agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="mysql_slave">MySQL Slave</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2.2-mytemplate-mysql-slave-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2.2-mytemplate-mysql-slave-agent.xml (6.7 KB)">Шаблон для мониторинга MySQL Slave (agent)</a>
+</p>
+
+</div>
+
+<h1 class="sectionedit4" id="шаблоны_zabbix_20">Шаблоны Zabbix 2.0</h1>
+<div class="level1">
+
+</div>
+
+<h3 class="sectionedit5" id="ubuntu_server">Ubuntu Server</h3>
+<div class="level3">
+
+<p>
+Необходимые макросы (переменные) в настройках узла
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>{$SYSTEM_PROC_NUM}</strong> - количество процессов, превышая которое, будет выдаваться предупреждение</div>
+</li>
+<li class="level1"><div class="li"> <strong>{$SYSTEM_CPU_AVG1}</strong> значение load average (avg1), превышая которое, будет выдаваться предупреждение</div>
+</li>
+</ul>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-ubuntu-server.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-ubuntu-server.xml (123.6 KB)">Шаблон для мониторинга Ubuntu Server</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="gentoo_server">Gentoo Server</h3>
+<div class="level3">
+
+<p>
+Необходимые макросы (переменные) в настройках узла
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>{$SYSTEM_PROC_NUM}</strong> - количество процессов, превышая которое, будет выдаваться предупреждение</div>
+</li>
+<li class="level1"><div class="li"> <strong>{$SYSTEM_CPU_AVG1}</strong> значение load average (avg1), превышая которое, будет выдаваться предупреждение</div>
+</li>
+</ul>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-gentoo-server.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-gentoo-server.xml (122.1 KB)">Шаблон для мониторинга Gentoo Server</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="apache2">Apache2</h3>
+<div class="level3">
+
+<p>
+Необходимые макросы (переменные) в настройках узла
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>{$APACHE_STATS_<abbr title="Uniform Resource Locator">URL</abbr>}</strong> - url адрес страницы статистики apache2</div>
+</li>
+<li class="level1"><div class="li"> <strong>{$APACHE_REQ_NUM}</strong> - количество запросов в секунду, превышая которое, будет выдаваться предупреждение</div>
+</li>
+</ul>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-apache2-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-apache2-agent.xml (26.8 KB)">Шаблон для мониторинга Apache2 (Agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="nginx">Nginx</h3>
+<div class="level3">
+
+<p>
+Необходимые макросы (переменные) в настройках узла
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>{$NGINX_STATS_<abbr title="Uniform Resource Locator">URL</abbr>}</strong> - url адрес страницы статистики nginx</div>
+</li>
+<li class="level1"><div class="li"> <strong>{$NGINX_REQ_NUM}</strong> - количество запросов в секунду, превышая которое, будет выдаваться предупреждение</div>
+</li>
+<li class="level1"><div class="li"> <strong>{$NGINX_CON_NUM}</strong> - количество установленных соединений, превышая которое, будет выдаваться предупреждение</div>
+</li>
+</ul>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-nginx-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-nginx-agent.xml (19.3 KB)">Шаблон для мониторинга Nginx (agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="memcache">Memcache</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-memcache-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-memcache-agent.xml (39.1 KB)">Шаблон для мониторинга Memcache (agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="iostat">IOSTAT</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-iostat-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-iostat-agent.xml (22.3 KB)">Шаблон для мониторинга iostat (agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="lm_sensors">LM_SENSORS</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-lmsensors-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-lmsensors-agent.xml (4.9 KB)">Шаблон для мониторинга lmsensors (agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="lsi_megaraid">LSI MegaRAID</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-lsimegaraid-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-lsimegaraid-agent.xml (25.1 KB)">Шаблон для мониторинга LSI MegaRAID (agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="smart">S.M.A.R.T.</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-smart-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-smart-agent.xml (7.3 KB)">Шаблон для мониторинга SMART (agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="postfix">Postfix</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-postfix-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-postfix-agent.xml (31.7 KB)">Шаблон для мониторинга Postfix (agent)</a>
+</p>
+
+<p>
+Необходимые макросы (переменные) в настройках узла
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>{$MAIL_QUEUE}</strong> - допустимая длинна очереди</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit15" id="varnish">Varnish</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-varnish-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-varnish-agent.xml (24.5 KB)">Шаблон для мониторинга Varnish (agent)</a>
+<p><div class="noteclassic">
+<img src="/lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+Какие еще элементы необходимо добавить в шаблон?
+
+</div></p>
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="hp_smart_array">HP Smart Array</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix2-mytemplate-hpsmartarray-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix2-mytemplate-hpsmartarray-agent.xml (13.2 KB)">Шаблон для мониторинга HP Smart Array (agent)</a>
+</p>
+
+<p>
+<br/>
+
+</p>
+<hr />
+
+<p>
+<br/>
+
+<br/>
+
+<br/>
+
+</p>
+
+</div>
+
+<h1 class="sectionedit17" id="шаблоны_zabbix_18">Шаблоны Zabbix 1.8</h1>
+<div class="level1">
+
+<p>
+<p><div class="notewarning">
+Устарели
+
+</div></p>
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="gentoo_server1">Gentoo Server</h3>
+<div class="level3">
+
+<p>
+Необходимые макросы (переменные) в настройках узла
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>{$GENTOO_PROC_NUM}</strong> - обычное количество процессов</div>
+</li>
+</ul>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix-mytemplate-gentoo-server.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix-mytemplate-gentoo-server.xml (177.8 KB)">Шаблон для мониторинга Gentoo Server</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="nginx1">Nginx</h3>
+<div class="level3">
+
+<p>
+Необходимые макросы (переменные) в настройках узла
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>{$NGINX_STATS_<abbr title="Uniform Resource Locator">URL</abbr>}</strong> - url адрес страницы статистики nginx</div>
+</li>
+<li class="level1"><div class="li"> <strong>{$NGINX_REQ_NUM}</strong> - количество запросов в секунду, превышая которое, будет выдаваться предупреждение</div>
+</li>
+</ul>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix-mytemplate-nginx-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix-mytemplate-nginx-agent.xml (16 KB)">Шаблон для мониторинга Nginx (agent)</a>
+</p>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix-mytemplate-nginx-externalscripts.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix-mytemplate-nginx-externalscripts.xml (14.7 KB)">Шаблон для мониторинга Nginx (Внешние проверки)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="apache">Apache</h3>
+<div class="level3">
+
+<p>
+Необходимые макросы (переменные) в настройках узла
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>{$APACHE_STATS_<abbr title="Uniform Resource Locator">URL</abbr>}</strong> - url адрес страницы статистики apache </div>
+</li>
+<li class="level1"><div class="li"> <strong>{$APACHE_REQ_NUM}</strong> - количество запросов в секунду, превышая которое, будет выдаваться предупреждение</div>
+</li>
+</ul>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix-mytemplate-apache-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix-mytemplate-apache-agent.xml (24.8 KB)">Шаблон для мониторинга Apache (Agent)</a>
+</p>
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix-mytemplate-apache-externalscripts.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix-mytemplate-apache-externalscripts.xml (23.6 KB)">Шаблон для мониторинга Apache (Внешние проверки)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="mysql">MySQL</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix-mytemplate-mysql-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix-mytemplate-mysql-agent.xml (59.3 KB)">Шаблон для мониторинга MySQL (agent)</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="memcache1">Memcache</h3>
+<div class="level3">
+
+<p>
+<a href="/_media/handmade/zabbix/zabbix-mytemplate-memcache-agent.xml" class="media mediafile mf_xml" title="handmade:zabbix:zabbix-mytemplate-memcache-agent.xml (37.5 KB)">Шаблон для мониторинга Memcache (agent)</a>
+</p>
+
+</div>
+<div class="comment_wrapper" id="comment_wrapper">
+  <h2><a name="discussion__section" id="discussion__section">
+    Обсуждение
+  </a></h2>
+  <div class="level2 hfeed">
+    <div class="hentry">
+      <div class="comment_head">
+        <a name="comment_064d3ecc638acf1c1fc585f18f6b9ffc" id="comment_064d3ecc638acf1c1fc585f18f6b9ffc"></a>
+        <span class="vcard author"><span class="fn">Александр</span></span>, <abbr class="published" title="2012-07-16T12:23:39Z">2012/07/16 12:23</abbr>
+      </div>
+      <div class="comment_body entry-content">
+
+<p>
+немогли бы вы обновить файл - Шаблон для мониторинга Apache (Agent)
+</p>
+
+<p>
+спасибо
+</p>
+
+      </div>
+      <div class="comment_buttons">
+        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">
+          <div class="no">
+            <input type="hidden" name="id" value="handmade:zabbix:zabbix_templates" />
+            <input type="hidden" name="do" value="show" />
+            <input type="hidden" name="comment" value="reply" />
+            <input type="hidden" name="cid" value="064d3ecc638acf1c1fc585f18f6b9ffc" />
+            <input type="submit" value="Ответить" class="button" title="Ответить" />
+          </div>
+        </form>
+              </div>
+    </div>
+    <div class="hentry">
+      <div class="comment_head">
+        <a name="comment_6bb24869832c71304e40416f5cd21b51" id="comment_6bb24869832c71304e40416f5cd21b51"></a>
+        <span class="vcard author"><span class="fn">Геннадий</span></span>, <abbr class="published" title="2012-07-24T10:48:10Z">2012/07/24 10:48</abbr>
+      </div>
+      <div class="comment_body entry-content">
+
+<p>
+Поддерживаю Александра!
+</p>
+
+<p>
+Выложите пожалуйста файл по мониторинга Apache!
+</p>
+
+<p>
+Спасибо.
+</p>
+
+      </div>
+      <div class="comment_buttons">
+        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">
+          <div class="no">
+            <input type="hidden" name="id" value="handmade:zabbix:zabbix_templates" />
+            <input type="hidden" name="do" value="show" />
+            <input type="hidden" name="comment" value="reply" />
+            <input type="hidden" name="cid" value="6bb24869832c71304e40416f5cd21b51" />
+            <input type="submit" value="Ответить" class="button" title="Ответить" />
+          </div>
+        </form>
+              </div>
+    </div>
+    <div class="hentry">
+      <div class="comment_head">
+        <a name="comment_d0aa2b511bc99286ed2f9579a6f49e97" id="comment_d0aa2b511bc99286ed2f9579a6f49e97"></a>
+        <span class="vcard author"><span class="fn">Aleksey</span></span>, <abbr class="published" title="2013-03-03T19:04:00Z">2013/03/03 19:04</abbr>
+      </div>
+      <div class="comment_body entry-content">
+
+<p>
+Добавлены шаблоны для Zabbix 2.0 <br/>
+
+Так же обновлены тексты скриптов в соответствующих статьях.
+</p>
+
+      </div>
+      <div class="comment_buttons">
+        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">
+          <div class="no">
+            <input type="hidden" name="id" value="handmade:zabbix:zabbix_templates" />
+            <input type="hidden" name="do" value="show" />
+            <input type="hidden" name="comment" value="reply" />
+            <input type="hidden" name="cid" value="d0aa2b511bc99286ed2f9579a6f49e97" />
+            <input type="submit" value="Ответить" class="button" title="Ответить" />
+          </div>
+        </form>
+              </div>
+    </div>
+    <div class="hentry">
+      <div class="comment_head">
+        <a name="comment_085430e9c2807bd292745a014ce4268b" id="comment_085430e9c2807bd292745a014ce4268b"></a>
+        <span class="vcard author"><span class="fn">Alexeya.A</span></span>, <abbr class="published" title="2014-01-17T18:05:46Z">2014/01/17 18:05</abbr>
+      </div>
+      <div class="comment_body entry-content">
+
+<p>
+Всем добрый день.
+А &quot;Apache (Внешние проверки)&quot; для 2 версии Забикса не работают?
+И если не сложно поясните в чём основное преимущество &quot;Агентного&quot; подхода, перед Внешней проверкой? Как по мне так внешняя проверка универсальнее, раз настроил и дальше только добавляй. На целевом хосте фактически ничего добавлять и не нужно. Или не прав?
+</p>
+
+      </div>
+      <div class="comment_buttons">
+        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">
+          <div class="no">
+            <input type="hidden" name="id" value="handmade:zabbix:zabbix_templates" />
+            <input type="hidden" name="do" value="show" />
+            <input type="hidden" name="comment" value="reply" />
+            <input type="hidden" name="cid" value="085430e9c2807bd292745a014ce4268b" />
+            <input type="submit" value="Ответить" class="button" title="Ответить" />
+          </div>
+        </form>
+              </div>
+    </div>
+    <div class="comment_replies" style="margin-left: 20px;">
+    <div class="hentry">
+      <div class="comment_head">
+        <a name="comment_252a7b241338d091b3ed8b9870147f78" id="comment_252a7b241338d091b3ed8b9870147f78"></a>
+        <span class="vcard author"><span class="fn">Aleksey</span></span>, <abbr class="published" title="2014-01-17T18:56:52Z">2014/01/17 18:56</abbr>
+      </div>
+      <div class="comment_body entry-content">
+<pre class="code">Всем добрый день. А &quot;Apache (Внешние проверки)&quot; для 2 версии Забикса не работают?</pre>
+
+<p>
+Если старые импортируется, значит будут работать, может немного подправить надо будет кое-что. Бери лучше 2.0 для агента и просто надо изменить ключи в элементах.
+</p>
+<pre class="code">И если не сложно поясните в чём основное преимущество &quot;Агентного&quot; подхода, перед Внешней проверкой?</pre>
+
+<p>
+<a href="https://www.zabbix.com/documentation/ru/2.0/manual/config/items/itemtypes/external" class="urlextern" target="_blank" title="https://www.zabbix.com/documentation/ru/2.0/manual/config/items/itemtypes/external"  rel="nofollow">https://www.zabbix.com/documentation/ru/2.0/manual/config/items/itemtypes/external</a><br/>
+
+<a href="https://www.zabbix.com/documentation/ru/2.0/manual/config/items/itemtypes/zabbix_agent" class="urlextern" target="_blank" title="https://www.zabbix.com/documentation/ru/2.0/manual/config/items/itemtypes/zabbix_agent"  rel="nofollow">https://www.zabbix.com/documentation/ru/2.0/manual/config/items/itemtypes/zabbix_agent</a><br/>
+
+</p>
+<pre class="code">Как по мне так внешняя проверка универсальнее, раз настроил и дальше только добавляй. На целевом хосте фактически ничего добавлять и не нужно. Или не прав?</pre>
+
+<p>
+Если server-status открыт только для localhost
+</p>
+
+      </div>
+      <div class="comment_buttons">
+        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">
+          <div class="no">
+            <input type="hidden" name="id" value="handmade:zabbix:zabbix_templates" />
+            <input type="hidden" name="do" value="show" />
+            <input type="hidden" name="comment" value="reply" />
+            <input type="hidden" name="cid" value="252a7b241338d091b3ed8b9870147f78" />
+            <input type="submit" value="Ответить" class="button" title="Ответить" />
+          </div>
+        </form>
+              </div>
+    </div>
+    </div>
+
+        <div class="comment_form">
+          <form id="discussion__comment_form" method="post" action="/doku.php" accept-charset="utf-8">
+            <div class="no">
+              <input type="hidden" name="id" value="handmade:zabbix:zabbix_templates" />
+              <input type="hidden" name="do" value="show" />
+              <input type="hidden" name="comment" value="add" />
+                      <input type="hidden" name="reply" value="" />
+                      <input type="hidden" name="user" value="94.137.192.3" />
+              <div class="comment_name">
+                <label class="block" for="discussion__comment_name">
+                  <span>Полное имя:</span>
+                  <input type="text" class="edit" name="name" id="discussion__comment_name" size="50" tabindex="1" value="" />
+                </label>
+              </div>
+              <div class="comment_mail">
+                <label class="block" for="discussion__comment_mail">
+                  <span>Эл. адрес:</span>
+                  <input type="text" class="edit" name="mail" id="discussion__comment_mail" size="50" tabindex="2" value="" />
+                </label>
+              </div>
+                        <div class="comment_text">
+                  Ваш комментарий. Вики-синтаксис разрешён:
+                  <!-- Fix for disable the toolbar when wikisyntaxok is set to false. See discussion's script.jss -->
+                                      <div id="discussion__comment_toolbar" class="toolbar group">
+                                  </div>
+                <textarea class="edit" name="text" cols="80" rows="10" id="discussion__comment_text" tabindex="5"></textarea>
+              </div>
+
+              <div id="plugin__captcha_wrapper"><input type="hidden" name="35f740de7d8298acf2193c679c87f9f6" value="3tgmsHK77pVGc2tlr+XQQ1owDTaY2acZJezC1UZIHr4=" /><label for="plugin__captcha">Пожалуйста, введите код подтверждения, чтобы доказать, что вы не робот:</label> <span id="plugin__captcha_code">J SL K᠎
+D</span> <input type="text" size="5" name="0e0785212b620d571e1947b6295d954c" class="edit" /> <label class="no">Пожалуйста, оставьте это поле пустым:<input type="text" name="8264eac95bf8d7292047fbc485d3f495" /></label></div>
+              <input class="button comment_submit" id="discussion__btn_submit" type="submit" name="submit" accesskey="s" value="Сохранить" title="Сохранить [S]" tabindex="7" />
+              <input class="button comment_preview_button" id="discussion__btn_preview" type="button" name="preview" accesskey="p" value="Просмотр" title="Просмотр [P]" />
+
+                      <div class="comment_subscribe">
+                <input type="checkbox" id="discussion__comment_subscribe" name="subscribe" tabindex="6" />
+                <label class="block" for="discussion__comment_subscribe">
+                  <span>Подписаться на комментарии</span>
+                </label>
+              </div>
+        
+              <div class="clearer"></div>
+              <div id="discussion__comment_preview">&nbsp;</div>
+            </div>
+          </form>
+        </div>
+          </div>
+</div>
+
+        </main>
+      
+    
+      <footer class="stylefoot">
+        <div class="meta">
+          <div class="user">
+                    </div>
+          <div class="doc">
+          <bdi>handmade/zabbix/zabbix_templates.txt</bdi> · Последние изменения: 2014/07/02 11:32  — <bdi>lexa</bdi>          </div>
+        </div>
+      </footer>
+
+    <div class="clearer"></div>
+
+    
+            
+    <div align="center" class="footerinc" onselectstart="return false;">
+
+<!--noindex-->
+
+<a target="_blank" href="http://www.gentoo.org" title="Gentoo Linux" rel="nofollow"><img src="http://wiki.enchtex.info/_media/button-gentoo.png"   width="80" height="15" alt="Gentoo Linux" border="0"/></a>
+<a target="_blank" href="http://wiki.splitbrain.org/wiki:dokuwiki" title="Driven by DokuWiki"><img src="/lib/tpl/arctic/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" border="0"/></a>
+
+<!--/noindex-->
+
+<!--SAPE-->
+<style>
+.sape {
+    font-size: 11px;
+    color: #889779;
+    }
+div.sape a:link {
+    color: #889779;
+    }
+</style>
+<div class="sape">
+<script type="text/javascript">
+<!--
+var _acic={dataProvider:10};(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="//www.acint.net/aci.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()
+//-->
+</script></div>
+<!--/SAPE-->
+</div>
+
+  </div>
+</div>
+
+<div class="no"></div>
+</body>
+</html>
