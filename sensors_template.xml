@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-01-06T18:45:49Z</date>
+    <date>2016-01-06T18:50:35Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -17,7 +17,11 @@
                     <name>Templates</name>
                 </group>
             </groups>
-            <applications/>
+            <applications>
+                <application>
+                    <name>CoresTemp</name>
+                </application>
+            </applications>
             <items/>
             <discovery_rules>
                 <discovery_rule>
@@ -95,7 +99,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>CoresTemp</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                         </item_prototype>
